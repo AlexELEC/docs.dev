@@ -9,12 +9,11 @@ type: docs
 
 ## Проект AlexELEC
 
-Здебільшого це набір рішень для зручного налаштування та комфортного перегляду IPTV-каналів
-у медіацентрі <a target='_blank' href="https://kodi.tv/">Kodi</a>. Сюди входять:
+Це набір рішень, спрямованих на зручне налаштування та комфортний перегляд IPTV-каналів
+у медіацентрі <a target='_blank' href="https://kodi.tv/">Kodi</a>. До цього набору входять:
 
 + **[TVLINK IPTV Server](/docs/tvlink/docs/overview/)** - ретранслятор та агрегатор IPTV каналів із зручним веб-інтерфейсом.
-+ **TVLINK PVR Client** - доповнення для Kodi яке дозволяє дивитись IPTV канали.
-+ **TVLINK Simple Control** - доповнення для Kodi яке дає змогу контролювати деякі аспекти
-  роботи TVLINK.
-+ **<a target='_blank' href="https://libreelec.tv/">LibreELEC</a> / <a target='_blank' href="https://coreelec.org/">CoreELEC</a> (ae-fork)** - cистеми які модифіковані для роботи з TVLINK.
++ **TVLINK PVR Client** - доповнення для Kodi, яке дозволяє дивитися IPTV-канали.
++ **TVLINK Simple Control** - доповнення для Kodi, що дозволяє контролювати деякі аспекти роботи TVLINK.
++ **<a target='_blank' href="https://libreelec.tv/">LibreELEC</a> / <a target='_blank' href="https://coreelec.org/">CoreELEC</a> (ae-fork)** - системи, які модифіковані для роботи з TVLINK.
 + **Kodi for Android** - модифікована версія Kodi (Android-пакети) з підтримкою TVLINK.
