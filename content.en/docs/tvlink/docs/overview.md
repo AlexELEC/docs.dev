@@ -5,32 +5,32 @@ weight: 10
 
 ## General info
 
-«TVLINK Server» is a repeater and aggregator of IPTV channels with a user-friendly web interface.
-It retransmits streams specified by the user from sources such as: IPTV playlists, Acestream, Ministra/Stаlker Middleware or add-ons.
+«TVLINK Server» is an IPTV channel repeater and aggregator with a user-friendly web interface.
+It retransmits streams specified by the user from sources such as IPTV playlists, Acestream, Ministra/Stalker Middleware, or add-ons.
 
 The main goal of the program is to provide uninterrupted operation of IPTV channels. You can automatically
-or manually combine streams of the same channel from different sources, and «TVLINK», depending
-on the priority of the source and its operability, will select and retransmit the best stream.
+or manually combine streams of a single channel from various sources, and «TVLINK», depending on the source's
+priority and its operability, will select and retransmit the best stream.
 
-If for some reason the previous stream stops broadcasting, the program will automatically switch to the next
-stream of that channel. This cycle will continue as long as at least one stream from the set is working.
+If the previous stream stops broadcasting for any reason, the program will automatically switch to the next
+available stream of the same channel. This cycle will continue as long as at least one stream from the set is working.
 
 The program supports IPTV archives (catchup) with the ability to switch to the next stream,
 even if the archive types in these streams differ. Any IPTV player with support for the «Shift» archive
 type is suitable for this function. Even if such a player does not support other archive types
-(Append, Flussonic), it will still play them thanks to the internal conversion of archive types in «TVLINK».
+(Append, Flussonic), it will still play them due to the internal conversion of archive types in «TVLINK».
 
 The program also provides:
 
-+ convenient setup and delivery of EPG (electronic program guide in XMLTV format)
-+ built-in API for independently writing add-ons
++ convenient setup and provision of EPG (Electronic Program Guide in XMLTV format)
++ built-in API for independent add-on development
 + unlimited number of users and IPTV sources (depends only on hardware capabilities)
-+ ability (using profiles) to provide different channel sets to different users
-+ edit (rename, disable, delete) channels and groups (individually or in groups)
++ ability (using profiles) to provide different sets of channels to different users
++ edit (change name, disable, delete) channels, groups (individually or in groups)
 + sort, set numbers for channels and groups, set icons for channels
 + ability to automatically (on a schedule) update channel sources and EPG
 + protection of your channels from unauthorized access using «tokens»
-+ stream status and program operation log in the web interface
++ stream status and program log in the web interface
 
 The program uses the Python module <a target='_blank' href="https://streamlink.github.io/">«Streamlink»</a>.
 This, in turn, makes it possible to use a large number of <a target='_blank' href="https://streamlink.github.io/plugins.html">add-ons</a>
@@ -44,7 +44,7 @@ use «PVR TVLINK Client» for Kodi.
 
 {{% details "Program limitations." %}}
 ---
-The program does not work in the territory of Russia and Belarus.
+The program does not work in Russia and Belarus.
 However, if you do not support Russian aggression in Ukraine, create a file named «_Glory_to_Ukraine_»
 in the main «TVLINK» directory, for example:
 
@@ -60,7 +60,4 @@ This way, you will disable geolocation checking when the program starts.
 + arm7
 + aarch64
 
-The program does not require many resources. For example, when serving two clients, it occupies an average
-of 70 MB of RAM.
-
-
+The program does not require many resources. For example, when serving two clients, it averages 70 MB of RAM usage.
