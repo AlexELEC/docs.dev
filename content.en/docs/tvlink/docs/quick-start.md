@@ -15,7 +15,7 @@ Where «ip-address» is the address of the computer on which «TVLINK» is insta
 Activate «Playlists sources» and click the «Add playlist» button.
 
 <p align="center">
-  <img src="/tvlink/quick-start/01.png" />
+  <a href="/tvlink/quick-start/01.png"><img src="/tvlink/quick-start/01.png" width="480"/></a>
 </p>
 
 In the «Add new playlist» form, specify the playlist name (Playlist name) and the URL address or
@@ -28,7 +28,7 @@ After confirmation (Save changes), activate the «Add channels» switch for this
 the «Update» icon.
 
 <p align="center">
-  <img src="/tvlink/quick-start/02.png" />
+  <a href="/tvlink/quick-start/02.png"><img src="/tvlink/quick-start/02.png" width="480"/></a>
 </p>
 
 As a result of these actions, all channels from your playlist will be added to «TVLINK», specifically
@@ -36,7 +36,7 @@ to the «Channels» page (so-called «mapping» of channels). This will already 
 channels.
 
 <p align="center">
-  <img src="/tvlink/quick-start/03.png" />
+  <a href="/tvlink/quick-start/03.png"><img src="/tvlink/quick-start/03.png" width="480"/></a>
 </p>
 
 On the «About» page, you can download the playlist (M3U Playlist) and open it in any IPTV player,
@@ -45,5 +45,5 @@ Or, on the «Channels» page, in the «ID» column, you can click the blue trian
 and watch the channel directly in the web interface.
 
 <p align="center">
-  <img src="/tvlink/quick-start/04.png" />
+  <a href="/tvlink/quick-start/04.png"><img src="/tvlink/quick-start/04.png" width="480"/></a>
 </p>

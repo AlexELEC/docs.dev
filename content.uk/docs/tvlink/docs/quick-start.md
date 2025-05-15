@@ -15,7 +15,7 @@ weight: 12
 Активуйте «Playlists sources» і натисніть кнопку «Add playlist».
 
 <p align="center">
-  <img src="/tvlink/quick-start/01.png" />
+  <a href="/tvlink/quick-start/01.png"><img src="/tvlink/quick-start/01.png" width="480"/></a>
 </p>
 
 У формі «Add new playlist» вкажіть назву плейліста (Playlist name) та URL-адресу або шлях до файлу
@@ -28,14 +28,14 @@ weight: 12
 іконку «Update».
 
 <p align="center">
-  <img src="/tvlink/quick-start/02.png" />
+  <a href="/tvlink/quick-start/02.png"><img src="/tvlink/quick-start/02.png" width="480"/></a>
 </p>
 
 В результаті цих дій усі канали з вашого плейлиста будуть додані до «TVLINK», а саме на сторінку «Channels»
 (так званий «mapping» каналів). Цього вже буде достатньо, щоб почати перегляд каналів.
 
 <p align="center">
-  <img src="/tvlink/quick-start/03.png" />
+  <a href="/tvlink/quick-start/03.png"><img src="/tvlink/quick-start/03.png" width="480"/></a>
 </p>
 
 На сторінці «About» ви можете завантажити плейлист (M3U Playlist) і відкрити його в будь-якому IPTV-плеєрі,
@@ -44,5 +44,5 @@ weight: 12
 канал безпосередньо у веб-інтерфейсі.
 
 <p align="center">
-  <img src="/tvlink/quick-start/04.png" />
+  <a href="/tvlink/quick-start/04.png"><img src="/tvlink/quick-start/04.png" width="480"/></a>
 </p>
