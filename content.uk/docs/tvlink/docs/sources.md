@@ -11,8 +11,9 @@ weight: 13
 + доповнення (Addon sources)
 + портали Stаlker/Ministra (Portal sources)
 + джерела для Acestream (AceStream sources)
-+ розклад передач каналів (XMLTV EPG sources)
-+ профілі користувачів (User Profiles)
++ [створення логотипів каналів (Channel picons)](/docs/tvlink/docs/channels/#утиліта-picons)
++ [розклад передач каналів (XMLTV EPG sources)](/docs/tvlink/docs/epg/)
++ [профілі користувачів (User Profiles)](/docs/tvlink/docs/profiles/)
 
 ## Джерела плейлистів
 

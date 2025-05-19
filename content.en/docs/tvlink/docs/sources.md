@@ -11,8 +11,9 @@ On the «Sources» page, you have the ability to configure the following:
 + Addons sources
 + Stalker/Ministra portals sources
 + AceStream sources
-+ XMLTV EPG sources
-+ User Profiles
++ [Channel picons](/docs/tvlink/docs/channels/#picons-utility)
++ [XMLTV EPG sources](/docs/tvlink/docs/epg/)
++ [User Profiles](/docs/tvlink/docs/profiles/)
 
 ## Playlists Sources
 

@@ -153,4 +153,4 @@ If «TVLINK» works without errors, close it (Ctrl+C). Download and add the serv
 
 ## Program Update
 
-Read here on how to update the program.
+[Read here](/docs/tvlink/docs/status/#program-update) on how to update the program.
