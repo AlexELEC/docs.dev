@@ -18,7 +18,7 @@ weight: 10
 + Default SSH (login/password): *root/mcpc*
 + Automatic system update feature removed from «LibreELEC/CoreELEC» settings.
 + File manager «Midnight Commander» and utility «htop» integrated into the system.
-+ «hid-remote» service added for configuring HID remote controls.
++ [«HID-Remote»](/docs/alexelec/docs/hid-remote/) service added for configuring HID remote controls.
 + Packages (dependencies) added for «TVLINK IPTV server» operation.
 + «TVLINK IPTV server» can be downloaded, activated, or deactivated in system settings.
 + «PVR TVLINK Client» integrated into the system.
