@@ -107,3 +107,18 @@ We need the first code. Write it to the «remote.map» file without spaces.
 In the «sample/keys.sample» file, you will find all the necessary keyboard key names.
 
 After editing the «device.conf» and «remote.map» files, activate the «HID-Remote» service in the system settings.
+
+## The «Power» Button
+
+Usually, the «Power» button on the remote control functions the same way as the «Power» button on the computer case: it immediately turns off the computer.
+If this behavior does not suit you, and you wish for this button to bring up the «Shoutdown» menu (for example, for setting a timer), follow these steps:
+
+1. Copy the file «/etc/systemd/logind.conf» to the directory «/storage/.config/logind.conf.d».
+
+2. Edit the following line in the copied file:
+
+{{% hint %}}
+    HandlePowerKey=ignore
+{{% /hint %}}
+
+To make the changes take effect, you need to reboot the system.
