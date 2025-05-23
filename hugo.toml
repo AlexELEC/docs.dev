@@ -6,7 +6,8 @@ theme = 'hugo-book'
 disablePathToLower = true
 enableGitInfo = false
 
-# Google Analytics 4
+# Google Analytics
+googleAnalytics = "G-49G9PRTSX2"
 googleAnalytics4 = "G-49G9PRTSX2"
 
 # Needed for mermaid/katex shortcodes
