@@ -33,7 +33,8 @@ weight: 10
 
 **LibreELEC**
 
-В цю систему (в CoreELEC ця можливість є за замовчуванням) додано можливість встановлювати пакети з репозиторію <a target='_blank' href="https://wiki.coreelec.org/coreelec:entware">«Entware»</a>.
+В цю систему (в CoreELEC <a target='_blank' href="https://wiki.coreelec.org/coreelec:entware">ця можливість</a> є за замовчуванням)
+додано можливість встановлювати пакети з репозиторію [«Entware»](/docs/alexelec/docs/entware/).
 
 **CoreELEC**
 

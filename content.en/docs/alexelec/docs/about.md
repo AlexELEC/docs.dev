@@ -33,8 +33,8 @@ from which you can install add-ons: «TVLINK Simple Control», «Keyboard Layout
 
 **LibreELEC**
 
-The ability to install packages from the <a target='_blank' href="https://wiki.coreelec.org/coreelec:entware">«Entware»</a>
-repository has been added to this system (this feature is default in CoreELEC).
+The ability to install packages from the [«Entware»](/docs/alexelec/docs/entware/)
+repository has been added to this system (<a target='_blank' href="https://wiki.coreelec.org/coreelec:entware">this feature</a> is default in CoreELEC).
 
 **CoreELEC**
 
