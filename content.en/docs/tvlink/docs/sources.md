@@ -47,7 +47,7 @@ Select the desired addon and click «Save changes».
 </p>
 
 {{% hint info %}}
-You can also create your own addon. Refer to the following section for instructions on how to do this.
+You can also create your own addon. Refer to the following section for instructions on how to do [this](/docs/tvlink/docs/addons-api/).
 {{% /hint %}}
 
 ## Stalker/Ministra portals sources
