@@ -1,4 +1,4 @@
-baseURL = 'https://alexelec.github.io/'
+baseURL = 'https://alexelec.run.place/'
 title = 'AlexELEC'
 theme = 'hugo-book'
 
