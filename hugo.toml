@@ -35,15 +35,28 @@ googleAnalytics4 = "G-49G9PRTSX2"
 
 [menu]
 # [[menu.before]]
-#[[menu.after]]
-#  name = "Github"
-#  url = "https://github.com/alex-shpak/hugo-book"
-#  weight = 11
-#
-#[[menu.after]]
-#  name = "Hugo Themes"
-#  url = "https://themes.gohugo.io/themes/hugo-book/"
-#  weight = 10
+
+[languages.en.menu]
+  [[languages.en.menu.after]]
+    name = "Discussions"
+    url = "https://github.com/AlexELEC/TVLINK-Releases/discussions"
+    weight = 10
+
+  [[languages.en.menu.after]]
+    name = "Github"
+    url = "https://github.com/AlexELEC"
+    weight = 11
+
+[languages.uk.menu]
+  [[languages.uk.menu.after]]
+    name = "Обговорення"
+    url = "https://github.com/AlexELEC/TVLINK-Releases/discussions"
+    weight = 10
+
+  [[languages.uk.menu.after]]
+    name = "Github"
+    url = "https://github.com/AlexELEC"
+    weight = 11
 
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
