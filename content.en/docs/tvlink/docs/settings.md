@@ -24,8 +24,9 @@ The «Refresh sources at playlist» and «Remove broken channels» options do no
 
 + «Auto playlist IP» – if this option is enabled, «TVLINK» will use the IP address in the playlist from which the client's request originates.
 
-+ «Check internet IP» – the IP address that «TVLINK» uses to check the internet connection. The default address is «8.8.8.8».
-If you need to change this address before running the program, create a file named «check-internet.ip» in the tvlink directory and enter the required address there.
++ «Check internet (host:port)» – the address (host and port) that «TVLINK» uses to check its internet connection.
+The host can be either a domain name or an IP address, for example, «8.8.8.8:53». The default address is «google.com:443».
+If you need to change this option before starting the program, create a file named «check-internet.ip» in the tvlink directory and enter the required address there.
 
 + «Check internet max time» – the maximum time during which «TVLINK» checks the internet connection. The program will not start until it has internet access.
 
