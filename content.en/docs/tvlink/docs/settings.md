@@ -186,9 +186,10 @@ Corresponds to the <a target='_blank' href="https://streamlink.github.io/cli.htm
 
 + «HLS playlist reload time» – controls the time after which a request is made to update the segment list.
 Partially corresponds to the <a target='_blank' href="https://streamlink.github.io/cli.html#cmdoption-hls-playlist-reload-time">«hls-playlist-reload-time»</a> parameter in «Streamlink».
-The «segment» parameter has the same meaning as in «Streamlink». The «duration» value corresponds to «default» in «Streamlink».
-The «average» value is the average time of two segments. The «default» value is either one of the values
-corresponding to «duration» / «segment», or, if they are not present, the set time is 6 seconds.
+    + «segment» has the same meaning as in «Streamlink». The time specified by the «#EXTINF» tag is used for the segment.
+    + «targetduration» corresponds to «default» in «Streamlink». The time specified by the «#EXT-X-TARGETDURATION» tag is used for the entire list of segments.
+    + «smart» is a mode where the program independently decides when to request an update to get segments without unnecessary waiting and to avoid making requests too frequently.
+    This saves resources and speeds up the stream. A detailed description of this mode is provided [below](/docs/tvlink/docs/settings/#smart-mode-for-hls-playlist-reloading).
 
 + «HLS Stream Data» – if activated, immediately transfers data from the segment to the output buffer during download.
 Channels open quickly, without prior buffering before starting. If disabled, data is transferred only after the first segment is downloaded.
@@ -201,6 +202,96 @@ Corresponds to the <a target='_blank' href="https://streamlink.github.io/cli.htm
 
 + «Sources Proxy» and «Streams Proxy» – allow you to set a proxy for sources and streams. Format: «http://login:password@your.proxy:port».
 The «login/password» values are optional. Supported protocols: http, https, socks5.
+
+## «Smart» Mode for HLS Playlist Reloading
+
+Smart mode automatically determines the optimal time to request a playlist update. Its goal is to get a new segment as early as possible without making unnecessary requests to the server.
+You typically don't need to configure anything, as the default values are already optimized. However, if you want to customize the settings, a detailed explanation is provided below.
+
+**How It Works**
+
+Each segment has a specific duration (e.g., 5 seconds). Smart mode operates as follows:
+
++ It waits almost until the end of the current segment and makes an "early" request.
++ If a new segment hasn't appeared yet, it performs a short "recheck" a little later (no more frequently than specified).
++ It adds a small amount of "jitter" (a random time variation) to avoid bombarding the server with requests at the exact same moment.
+
+This approach ensures a minimum number of requests and fast delivery of new segments.
+
+**Possible Scenarios**
+
++ A new segment has appeared: the next request is made "slightly before the end" of the current segment.
++ No new segment yet: the program waits for a short, fixed interval and rechecks.
++ Playlist is empty or has no duration: the mode temporarily switches to a fallback algorithm and resets its internal state.
+This ensures a correct restart when the playlist becomes available again.
+
+**Parameters**
+
+Current default values (tvlink/libs/streamlink/stream/hls/hls.py):
+
+    class HLSStreamWorker(SegmentedStreamWorker[HLSSegment, Response]):
+        ...
+        # Smart reload playlist settings
+        self.reload_early_offset_s: float = 0.10
+        self.reload_publish_slack_s: float = 0.25
+        self.reload_idle_min: float = 0.80
+        self.reload_jitter_ms: int = 30
+        ...
+
+**Parameter Meanings:**
+
++ reload_early_offset_s (seconds)
+    + Determines how much earlier than the "end of the segment" the request should be made.
+    + 0.10 means the playlist is requested approximately 100 ms before the segment ends.
+    + You can specify a negative number to request "slightly after the end" (e.g., -0.05). This almost eliminates "double" requests but can slightly increase latency.
++ reload_publish_slack_s (seconds)
+    + This is a time buffer for the "recheck" when a new segment isn't yet available.
+    + It works in conjunction with the minimum interval.
++ reload_idle_min (seconds)
+    + The minimum interval between "rechecks" to avoid spamming the server.
+    + Increasing this value will reduce the number of requests but might introduce a small additional delay.
++ reload_jitter_ms (milliseconds)
+    + A random "noise" added to the waiting interval to prevent requests from being sent on a strict timer.
+    + Typically 20–50 ms.
+
+**Internal Guarantees:**
+
++ The minimum technical waiting time is 0.25 seconds.
++ An excessively large positive offset is automatically limited to prevent the waiting time from becoming almost zero.
+
+**When to Adjust Settings:**
+
++ If you want to reduce the number of "double" requests:
+    + Slightly increase reload_early_offset_s (e.g., to 0.15–0.20) or make it negative (e.g., -0.05…-0.10).
++ If the server is complaining about frequent requests:
+    + Increase reload_idle_min (e.g., to 1.0–1.5).
++ If you want the most "live" stream (minimum latency):
+    + Keep reload_early_offset_s around 0.05–0.10 and do not increase reload_idle_min.
+
+**Example Logs and How to Read Them:**
+
++ Next reload [smart] in 4.746s: base=5.000s changed=True streak=0
+    + base — duration of the last segment (in seconds).
+    + changed — the playlist has been updated (a new segment appeared).
+    + streak — how many times in a row the playlist has NOT changed (0 means it just updated).
+    + in 4.746s — the number of seconds until the next planned request.
++ Reloading playlist [smart]: base=5.000s changed=True streak=0 planned=4.871s | waited=4.746s elapsed=0.125s
+    + planned — the number of seconds the current waiting cycle was planned for.
+    + waited — how long the program actually waited.
+    + elapsed — overhead between cycles (processing time, etc.).
+
+You'll typically see 1–2 requests for every 5-second segment, which is normal and desirable behavior.
+
+**Briefly on Fault Tolerance**
+
++ If the playlist is temporarily "broken" (no segments or duration), smart mode will switch to a fallback calculation and reset its internal state.
+This ensures that when the playlist returns, it will start working "from a clean slate."
++ The first cycle after a stream starts is treated as "changed" to avoid an unnecessary initial pause.
+
+{{% hint warning %}}
+If you're unsure what to change, **leave the default settings**.
+They provide an excellent balance between speed and the number of requests.
+{{% /hint %}}
 
 ## Stream settings for individual sources
 
