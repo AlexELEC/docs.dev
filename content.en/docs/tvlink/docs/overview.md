@@ -57,7 +57,6 @@ This way, you will disable geolocation checking when the program starts.
 «TVLINK» <a target='_blank' href="https://github.com/AlexELEC/TVLINK-Releases/releases">releases</a> are compiled only for «Linux». The following architectures are supported:
 
 + x86-64
-+ arm7
 + aarch64
 
 The program does not require many resources. For example, when serving two clients, it averages 70 MB of RAM usage.

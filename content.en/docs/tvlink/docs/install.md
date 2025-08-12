@@ -64,9 +64,9 @@ You can also install «TVLINK» from an archive.
 For example, «Armbian Minimal/IOT Distro: Debian 12 (Bookworm)» for <a target='_blank' href="https://www.armbian.com/amlogic-s9xx-tv-box/">Amlogic S912</a>.
 {{% /hint %}}
 
-«TVLINK» uses the "ping" utility. We will install it, as well as some utilities that we will need.
+Let's install some utilities that we will need.
 
-    apt install -y mc tar bzip2 wget iputils-ping
+    apt install -y mc tar bzip2 wget
 
 Let's install the dependencies for «Streamlink» (python3-streamlink). This can be done with a single command:
 

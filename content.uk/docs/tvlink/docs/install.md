@@ -64,9 +64,9 @@ weight: 11
 На прикладі «Armbian Minimal/IOT Distro: Debian 12 (Bookworm)» для <a target='_blank' href="https://www.armbian.com/amlogic-s9xx-tv-box/">Amlogic S912</a>.
 {{% /hint %}}
 
-У «TVLINK» використовується утиліта «ping». Встановимо її, а також деякі утиліти, які нам знадобляться.
+Встановимо деякі утиліти, які нам знадобляться.
 
-    apt install -y mc tar bzip2 wget iputils-ping
+    apt install -y mc tar bzip2 wget
 
 Встановимо залежності для «Streamlink» (python3-streamlink). Це можна зробити однією командою:
 
