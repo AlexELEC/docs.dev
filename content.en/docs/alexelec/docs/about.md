@@ -5,13 +5,13 @@ weight: 10
 
 ## Downloading Images and System Updates
 
-+ <a target='_blank' href="https://github.com/AlexELEC/LibreELEC-21/releases">LibreELEC</a>
-+ <a target='_blank' href="https://github.com/AlexELEC/CoreELEC-21/releases">CoreELEC</a>
++ <a target='_blank' href="https://github.com/AlexELEC/LibreELEC/releases">LibreELEC</a>
++ <a target='_blank' href="https://github.com/AlexELEC/CoreELEC/releases">CoreELEC</a>
 
 ## Sources
 
-+ <a target='_blank' href="https://github.com/AlexELEC/LibreELEC-21">LibreELEC</a>
-+ <a target='_blank' href="https://github.com/AlexELEC/CoreELEC-21">CoreELEC</a>
++ <a target='_blank' href="https://github.com/AlexELEC/LibreELEC">LibreELEC</a>
++ <a target='_blank' href="https://github.com/AlexELEC/CoreELEC">CoreELEC</a>
 
 ## Differences from Original Versions
 
