@@ -140,7 +140,7 @@ For example, this could be information for periodic updating of the channel list
   <a href="/tvlink/settings/05.png"><img src="/tvlink/settings/05.png" width="480"/></a>
 </p>
 
-+ «Main User-Agent» – sets the default User-Agent. Some IPTV providers may have blocking based on the "user-agent".
+«Main User-Agent» – sets the default User-Agent. Some IPTV providers may have blocking based on the "user-agent".
 They provide the stream only if the request comes from a specific application. You can specify «TVLINK» so that it identifies itself as another application.
 
 The following settings mostly relate to the «Streamlink» module and are responsible for working with streams.
@@ -198,10 +198,58 @@ Corresponds to the <a target='_blank' href="https://streamlink.github.io/cli.htm
 + «HLS Live Restart» – if active, go to the beginning of the live broadcast or as far back as possible.
 Corresponds to the <a target='_blank' href="https://streamlink.github.io/cli.html#cmdoption-hls-live-restart">«hls-live-restart»</a> parameter in «Streamlink».
 
++ «VOD Limit segments on startup» – this parameter defines how many segments will be loaded and queued when a stream starts.
+It can be considered a buffer, similar to the «HLS live edge» parameter for live streams.
+
++ «VOD segments queue Step» – this parameter specifies how many segments to add to the download queue at once after the «VOD Limit segments on startup» parameter has taken effect.
+
 + «Debug Streams» – adds the «Streamlink» module's log to the «TVLINK» log. The log file is located in the «tvlink/log» directory.
 
-+ «Sources Proxy» and «Streams Proxy» – allow you to set a proxy for sources and streams. Format: «http://login:password@your.proxy:port».
+«Sources Proxy» and «Streams Proxy» – allow you to set a proxy for sources and streams. Format: «http://login:password@your.proxy:port».
 The «login/password» values are optional. Supported protocols: http, https, socks5.
+
+## Explanation of «VOD Limit segments on startup» and «VOD segments queue Step» options
+
+TVLINK can work with Catchup HLS streams almost in the same way as with regular Live HLS streams.
+
+As you know, the main task of TVLINK is to handle Live HLS streams. To do this, the program must download HLS stream segments as quickly as possible in multiple queues.
+This approach is not suitable for Catchup HLS streams (IPTV archives), which are essentially not Live, but VOD (Video on Demand) streams. The reason is that the HLS segments are downloaded too quickly.
+
+Let's explain with an example. You've enabled a stream that supports IPTV Catchup and rewound the video by 1 minute.
+Your player (e.g., Kodi) sends a request to the TVLINK server that looks something like this:
+
+    http://server/channel?utc={current_time - 60}&lutc={current_time}
+
+Here:
+
++ {current_time} – current time
++ {current_time - 60} – current time minus 60 seconds
+
+TVLINK processes the request and forwards it to your IPTV provider. In response, the provider's server returns a playlist that contains all the video for that minute.
+For example, 10 segments of 6 seconds each. TVLINK will download all these segments in a couple of seconds and encounter the end of the video (EOF),
+which will cause the stream to restart with new utc/lutc parameters, but again for one minute. During this time, Kodi will constantly receive fragmented video and "stutter." This cycle repeats indefinitely.
+
+To prevent this from happening, it was necessary to simulate the behavior of Live streams for Catchup VOD streams.
+
+The logic that previously worked for VOD:
+
++ Request the playlist.
++ Download all segments in the playlist as quickly as possible.
++ Reset and request a new playlist.
+
+The logic that now works for VOD:
+
++ Request the playlist.
++ Download the number of segments specified by VOD Limit segments on startup.
++ Timeout for the segment duration.
++ Request the playlist.
++ Download the number of segments specified by VOD segments queue Step.
++ Timeout for the segment duration.
++ Request the playlist.
++ Download the number of segments specified by VOD segments queue Step.
++ ...
+
+The connection doesn't reset because the playlist is constantly being updated: new playlist requests with new segments are sent out (similar to Live streams).
 
 ## «Smart» Mode for HLS Playlist Reloading
 
