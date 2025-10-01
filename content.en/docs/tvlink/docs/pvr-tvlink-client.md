@@ -36,8 +36,6 @@ A modified version of «Kodi» is required for «PVR TVLINK Client» to work; it
 + «TVLINK profile» – the user profile on the «TVLINK» server. If not specified, the main profile (main) is used.
 + «Auth. Token» – the authorization token, if required.
 
-+ «FFmpeg playlist» – enable if you want to receive broadcasts that will be processed by the ffmpeg module of «TVLINK».
-
 ### «Streams»
 
 <p align="center">
@@ -48,12 +46,11 @@ A modified version of «Kodi» is required for «PVR TVLINK Client» to work; it
 
 + «Buffering streams» – if activated, the client will additionally buffer streams (using Kodi's capabilities).
 
-+ «FFmpegDirect for Timeshift» – enables the Timeshift function via the «Inputstream FFmpeg Direct» addon.
-
-+ «FFmpegDirect for Catchup» – enables the Catchup function via the «Inputstream FFmpeg Direct» addon.
++ «Use Inputstream FFmpeg Direct» – enabling this parameter activates the Timeshift and Catchup functionalities using the «Inputstream FFmpeg Direct» add-on.
 
 {{% hint info %}}
-The last two options ("FFmpegDirect for ...") will only work if you activate the "Inputstream FFmpeg Direct" add-on. Otherwise, the client will ignore them.
+This last option («Use Inputstream FFmpeg Direct») will only work provided that you activate the «Inputstream FFmpeg Direct» add-on.
+Otherwise, the client will ignore these features.
 
 The "Inputstream FFmpeg Direct" add-on has been specifically modified to work with "TVLINK" and is embedded in the system.
 If you update it to the original version, it will lose its functionality regarding "TVLINK".
@@ -70,18 +67,10 @@ All other settings are the same as in the "PVR IPTV Simple" client.
 These functions allow you to rewind (and then fast-forward) live broadcasts if your IPTV provider offers the "IPTV archives" service.
 
 + «TimeShift» is rewinding directly while you are watching a TV channel. For example, you started a channel where a movie has already been playing for 30 minutes.
-You press the "left" button to the desired moment and watch the movie from the beginning.
+You press the "down" button to the desired moment and watch the movie from the beginning.
 
 + «Catchup» is when you launch a TV program (that has already aired) from the "EPG".
 
-In practice, «TimeShift» and «Catchup» also differ in the mode in which the "Kodi" player will operate.
-
-+ «TimeShift» — the player operates in TV mode. This means that the player does not change its TV functionality (you started a channel and rewound).
-For example, you can call up the channel list with the "left" button and the EPG with the "right" button. The "up/down" buttons will function as rewind/fast-forward.
-
-+ «Catchup» — the player operates in VOD (Video On Demand) mode. This means that the player behaves as if you launched a regular video (you press the "Play programme" button in the EPG).
-The "left/right/up/down" buttons work as rewind/fast-forward. They differ only in the rewinding interval.
-
 {{% hint info %}}
-«TimeShift» only works when the "FFmpegDirect for Timeshift" option is enabled. For IPTV archives (Catchup) to work, the "FFmpegDirect for Catchup" option is not mandatory.
+«TimeShift» only works when the "Use Inputstream FFmpeg Direct" option is enabled. For IPTV archives (Catchup) to work, the "Use Inputstream FFmpeg Direct" option is not mandatory.
 {{% /hint %}}

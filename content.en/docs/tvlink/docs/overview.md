@@ -59,4 +59,4 @@ This way, you will disable geolocation checking when the program starts.
 + x86-64
 + aarch64
 
-The program does not require many resources. For example, when serving two clients, it averages 70 MB of RAM usage.
+The program does not require many resources. When serving two clients, it occupies an average of 80 to 160 MB of RAM, depending on the settings.
