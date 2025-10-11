@@ -30,6 +30,13 @@ If you need to change this option before starting the program, create a file nam
 
 + «Check internet max time» – the maximum time during which «TVLINK» checks the internet connection. The program will not start until it has internet access.
 
++ «Streamlink session pool» - this is the size of the fixed pool of pre-initialized Streamlink sessions.
+A fixed-size pool ensures that the same buffers are reused. Memory for the «Stream Ring buffer» and queues will be allocated once per pool session and will subsequently be only reused.
+Result: RAM usage will rise up to _N * (Ring Buffer size) + (overhead)_ and will stop growing.
+Recommendations:
+  - Set the value equal to the maximum number of concurrent streams plus the number of users.
+  - For one or two clients, leave the value at «4» (by default).
+
 + «Refresh sources at startup» – refresh sources when the program starts.
 
 + «Refresh sources at playlist» – refresh sources when a playlist is requested.
@@ -41,6 +48,9 @@ Static playlists are not created for tokens (Authentication Token).
 
 + «Remove broken channels» – «TVLINK» will automatically delete all channels that are found to be non-functional.
 Be cautious with this option: if the internet connection is lost, «TVLINK» will start deleting every channel you try to turn on.
+
++ «Use FFmpeg muxer» – this setting enables/disables the use of Streamlink's internal FFmpeg muxer.
+If the setting is enabled (by default) and «FFmpeg» is installed on the system, all audio tracks available in the HLS playlist will be added to the output stream.
 
 + «Authentication webUI» – simple authentication (login/password) for the web interface.
 After activation, you will immediately see a window to enter your credentials. You need to enter – «admin/admin».
