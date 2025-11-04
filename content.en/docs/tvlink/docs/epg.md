@@ -9,29 +9,22 @@ weight: 14
 EPG configuration needs to be performed after you have added channels in «TVLINK» (channel mapping).
 {{% /hint %}}
 
-You can use the EPG sources that are already present in the program (EPG Static sources),
-or create your own (EPG Custom sources). Activate the required switch.
+To create an EPG source, click the «Add EPG» button and fill in the «Add new EPG» form.
 
 <p align="center">
   <a href="/tvlink/epg/01.png"><img src="/tvlink/epg/01.png" width="480"/></a>
 </p>
 
-To create a custom source, click the «Add EPG» button and complete the «Add new EPG» form.
++ «EPG name» — This is a custom name of your choice. It must be in Latin letters, contain no special characters (such as spaces, hyphens, etc.), and cannot start with a number.
++ «EPG url» — This is the address of the XMLTV file. The file may be archived (in .gz or .tar.gz format) or unarchived (.xmltv). If this is a local file, the address must begin with the «file://» prefix.
+
+Click «Save changes» to save the settings.
 
 <p align="center">
   <a href="/tvlink/epg/02.png"><img src="/tvlink/epg/02.png" width="480"/></a>
 </p>
 
-+ «EPG name» — any name of your choice. It must consist of Latin letters, without special characters (spaces, hyphens, etc.) and cannot start with a digit.
-+ «EPG url» — the address of the XMLTV file. It can be archived (.tar.gz) or not archived (.xmltv).
-
-Click «Save changes» to save the settings.
-
-<p align="center">
-  <a href="/tvlink/epg/03.png"><img src="/tvlink/epg/03.png" width="480"/></a>
-</p>
-
-### Options
+### Table Columns
 
 + «Name» — the name of the source and a link (when the source is active and updated) to edit (match) channels for this source.
 + «Enable» — enabling/disabling the source.
@@ -45,9 +38,22 @@ This allows you to manually match those channels that «TVLINK» could not match
 + «Channels» — the total number of channel names in the source is displayed here.
 This is for informational purposes only, as not all channels listed in the source necessarily include program data.
 
+The blue icon in the «Name» column displays the settings window.
+
+<p align="center">
+  <a href="/tvlink/epg/03.png"><img src="/tvlink/epg/03.png" width="480"/></a>
+</p>
+
+Here you can optionally change the «EPG url», and also modify channel names («Modify channel names») using <a target='_blank' href="https://docs.python.org/3/howto/regex.html">regular expressions</a>.
+
+In the «change from (regular expression)» field, enter what you want to change, and in the «to» field, enter what you want to change it to.
+
+The regular expression (shown above) removes the "UA:" prefix from channel names. For example: it was «UA: Сhannel 5», it will become «Сhannel 5».
+
 ### Buttons
 
 + «Create EPG» — generates the program. The XMLTV file will be available at: «http://ip-address:port/xmltv»
++ «Clean auto EPG mapping» — clears all mappings that «TVLINK» created automatically.
 + «Clean manual EPG mapping» — clears all the mappings you have done manually.
 
 After you have clicked the button in the «Update» column, you can follow the link from the «Name» column and match the channels that «TVLINK» could not match,
@@ -70,7 +76,5 @@ Since the drop-down list of the «Manual EPG mapping» column contains all the c
 To simplify the task, you need to enter the first letters of the channel name and the list will move to the desired position.
 
 After setting up, return to the «Sources» page and click the «Create EPG» button.
-
-In the «EPG Static sources», you have the option to change the URL address if needed. To do this, click the «Edit» icon next to the source name.
 
 The update frequency of EPG sources is set on the «Settings» page in the «EPG settings» section.
